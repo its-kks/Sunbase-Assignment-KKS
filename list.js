@@ -203,28 +203,24 @@ function handleEdit(row){
     let tds = row.getElementsByTagName("td");
     let id = row.getAttribute("id");
 
+    
     const previousData = [];
-    const updateBtn = tds[tds.length-1].childNodes[0];
-    updateBtn.innerHTML = "Save";
-    updateBtn.addEventListener("click", (event)=>{
-        event.preventDefault();
-        handleSave(row);
-    });
-
     for(let i=0; i<tds.length-1; i++){
         let input = document.createElement("input");
-        if(i==5){
-            input.setAttribute("type", "email");
-        }
-        if(i==6){
-            input.setAttribute("type", "number");
-        }
+        input.classList.add("inputsTable");
         input.value = tds[i].innerHTML;
+
         //saving previous data if update fails
         previousData[i] = tds[i].innerHTML;
         tds[i].innerHTML = "";
         tds[i].appendChild(input);
     }
+    const updateBtn = tds[tds.length-1].childNodes[0];
+    updateBtn.innerHTML = "Save";
+    updateBtn.addEventListener("click", (event)=>{
+        event.preventDefault();
+        handleSave(row,previousData);
+    });
 }
 
 document.getElementById('addBtn').addEventListener("click", (event)=>{

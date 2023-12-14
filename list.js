@@ -1,4 +1,4 @@
-function handleFetchData(){
+async function handleFetchData(){
     const url = "https://qa2.sunbasedata.com/sunbase/portal/api/assignment.jsp";
     let head ={
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function getCookie(name){
     return "";
 }
 
-function handleDelete(row){
+async function handleDelete(row){
     let id = row.getAttribute("id");
     let url = "https://qa2.sunbasedata.com/sunbase/portal/api/assignment.jsp?id="+id+"?cmd=delete";
     let head ={
@@ -149,7 +149,7 @@ function handleInputToTextNotUpdated(row,prevData){
 
 
 //handling api call for update
-function handleSave(row,prevData){
+async function handleSave(row,prevData){
 
     const id = row.getAttribute("id");
     let url = "https://qa2.sunbasedata.com/sunbase/portal/api/assignment.jsp?id="+id+"?cmd=update";

@@ -18,7 +18,7 @@ function getFormData(){
     return formData;
 }
 
-function handleAdd(){
+async function handleAdd(){
     let formData = getFormData();
     console.log(formData);
 

@@ -1,4 +1,4 @@
-function handleLogin(){
+async function handleLogin(){
     let loginId = document.getElementById("loginId").value;
     let password = document.getElementById("password").value;
 
